@@ -11,23 +11,25 @@ import { CommonModule } from '@angular/common';
     RouterModule.forChild([
       {
         path: '',
-        component: ParentComponent
-      },
-      {
-        path: 'personalize',
-        loadChildren: './intro-personalize/intro-personalize.module#IntroPersonalizeModule'
-      },
-      {
-        path: 'info',
-        loadChildren: './intro-info/intro-info.module#IntroInfoModule'
-      },
-      {
-        path: 'reward',
-        loadChildren: './intro-reward/intro-reward.module#IntroRewardModule'
-      },
-      {
-        path: 'reward/:id',
-        loadChildren: './intro-reward/intro-reward.module#IntroRewardModule'
+        component: ParentComponent,
+        children: [
+          {
+            path: 'personalize',
+            loadChildren: './intro-personalize/intro-personalize.module#IntroPersonalizeModule'
+          },
+          {
+            path: 'info',
+            loadChildren: './intro-info/intro-info.module#IntroInfoModule'
+          },
+          {
+            path: 'reward',
+            loadChildren: './intro-reward/intro-reward.module#IntroRewardModule'
+          },
+          {
+            path: 'reward/:id',
+            loadChildren: './intro-reward/intro-reward.module#IntroRewardModule'
+          }
+        ]
       }
     ])
   ],

@@ -11,15 +11,17 @@ import { CommonModule } from '@angular/common';
     RouterModule.forChild([
       {
         path: '',
-        component: IntroComponent
-      },
-      {
-        path: 'login',
-        loadChildren: './login/login.module#LoginModule'
-      },
-      {
-        path: 'parent',
-        loadChildren: './intro-parent/intro-parent.module#IntroParentModule'
+        component: IntroComponent,
+        children: [
+          {
+            path: 'login',
+            loadChildren: './login/login.module#LoginModule'
+          },
+          {
+            path: 'parent',
+            loadChildren: './intro-parent/intro-parent.module#IntroParentModule'
+          }
+        ]
       }
     ])
   ],
