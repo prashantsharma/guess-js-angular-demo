@@ -3,33 +3,33 @@ import { RouterModule } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
 import { RewardsComponent } from './rewards.component';
-import { GamesComponent } from './games/games.component';
-import { BadgesComponent } from './badges/badges.component';
 
 @NgModule({
-  declarations: [RewardsComponent, GamesComponent, BadgesComponent],
+  declarations: [RewardsComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: RewardsComponent
-      },
-      {
-        path: 'games/:id',
-        component: GamesComponent
-      },
-      {
-        path: 'games',
-        component: GamesComponent
-      },
-      {
-        path: 'badges/:id',
-        component: BadgesComponent
-      },
-      {
-        path: 'badges',
-        component: BadgesComponent
+        component: RewardsComponent,
+        children: [
+          {
+            path: 'games/:id',
+            loadChildren: './games/games.module#GamesModule'
+          },
+          {
+            path: 'games',
+            loadChildren: './games/games.module#GamesModule'
+          },
+          {
+            path: 'badges/:id',
+            loadChildren: './badges/badges.module#BadgesModule'
+          },
+          {
+            path: 'badges',
+            loadChildren: './badges/badges.module#BadgesModule'
+          }
+        ]
       }
     ])
   ],
