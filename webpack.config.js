@@ -453,12 +453,10 @@ module.exports = {
     new PageGraphMLPlugin({
       debug: true,
       data: require('../smarty/db/128035004.json'),
-      routeProvider: () => {
-        return require('route-parser').parseRoutes('src/tsconfig.app.json', 0);
-      },
       build: {
-        totalClusters: 6
-      }
+        minChunks: 4
+      },
+      runtime: false
     })
   ],
   node: {
