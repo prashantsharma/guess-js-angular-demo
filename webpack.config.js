@@ -451,12 +451,10 @@ module.exports = {
       compilerOptions: {}
     }),
     new PageGraphMLPlugin({
-      debug: true,
       data: require('../smarty/db/128035004.json'),
       build: {
         minChunks: 4
-      },
-      runtime: false
+      }
     })
   ],
   node: {
