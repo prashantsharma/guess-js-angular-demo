@@ -18,7 +18,7 @@ const {
 const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 
-const { PageGraphMLPlugin } = require('dd-webpack');
+const { PageGraphMLPlugin } = require('@mlx/webpack');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
 const realNodeModules = fs.realpathSync(nodeModules);
@@ -451,7 +451,7 @@ module.exports = {
       compilerOptions: {}
     }),
     new PageGraphMLPlugin({
-      data: require('../smarty/db/128035004.json'),
+      data: require('../../ga/data.json'),
       build: {
         minChunks: 4
       }
