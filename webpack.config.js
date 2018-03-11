@@ -18,7 +18,7 @@ const {
 const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 
-const { PageGraphMLPlugin } = require('@mlx/webpack');
+const { MLPlugin } = require('@mlx/webpack');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
 const realNodeModules = fs.realpathSync(nodeModules);
@@ -450,7 +450,7 @@ module.exports = {
       skipCodeGeneration: true,
       compilerOptions: {}
     }),
-    new PageGraphMLPlugin({
+    new MLPlugin({
       data: require('../mlx-ga-demo/data.json'),
       build: {
         minChunks: 4
