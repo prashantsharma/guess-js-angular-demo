@@ -451,7 +451,7 @@ module.exports = {
       compilerOptions: {}
     }),
     new PageGraphMLPlugin({
-      data: require('../../ga/data.json'),
+      data: require('../ga/data.json'),
       build: {
         minChunks: 4
       }
