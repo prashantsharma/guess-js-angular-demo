@@ -450,12 +450,7 @@ module.exports = {
       skipCodeGeneration: true,
       compilerOptions: {}
     }),
-    new MLPlugin({
-      data: require('../mlx-ga-demo/data.json'),
-      build: {
-        minChunks: 4
-      }
-    })
+    new MLPlugin({ data: require('../mlx-ga-demo/data.json') })
   ],
   node: {
     fs: 'empty',
