@@ -19,6 +19,7 @@ const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 
 const { MLPlugin } = require('@mlx/webpack');
+const data = require('./data.json');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
 const realNodeModules = fs.realpathSync(nodeModules);
@@ -450,7 +451,7 @@ module.exports = {
       skipCodeGeneration: true,
       compilerOptions: {}
     }),
-    new MLPlugin({ data: require('../mlx-ga-demo/data.json') })
+    new MLPlugin({ data })
   ],
   node: {
     fs: 'empty',
