@@ -18,8 +18,7 @@ const {
 const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
 
-const { MLPlugin } = require('@mlx/webpack');
-const data = require('./data.json');
+const { GuessPlugin } = require('guess-webpack');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
 const realNodeModules = fs.realpathSync(nodeModules);
@@ -30,7 +29,7 @@ const baseHref = '';
 const deployUrl = '';
 const projectRoot = process.cwd();
 const maximumInlineSize = 10;
-const postcssPlugins = function(loader) {
+const postcssPlugins = function (loader) {
   return [
     postcssImports({
       resolve: (url, context) => {
@@ -451,7 +450,16 @@ module.exports = {
       skipCodeGeneration: true,
       compilerOptions: {}
     }),
-    new MLPlugin({ data })
+    new GuessPlugin({
+      GA: '128035004',
+      period: {
+        startDate: new Date('2016-1-2'),
+        endDate: new Date('2018-2-24')
+      },
+      routeFormatter(path) {
+        return path.replace(/^\/app/, '');
+      }
+    })
   ],
   node: {
     fs: 'empty',
