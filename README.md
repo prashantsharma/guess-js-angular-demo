@@ -10,6 +10,8 @@ You will notice that the last plugin in this ejected Angular CLI application is 
 
 ```js
 new GuessPlugin({
+
+  // View ID for your Google Analytics project
   GA: 'XXXXXXXXX',
 
   // Optional
