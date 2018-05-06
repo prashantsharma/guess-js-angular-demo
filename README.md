@@ -22,7 +22,7 @@ new GuessPlugin({
 })
 ```
 
-The project also defines a `routeFormatter` which is an optional property that you'll most likley not need.
+The project also defines a `routeFormatter` which is an optional property that you'll most likely not need.
 
 ## License
 
